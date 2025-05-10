@@ -11,10 +11,12 @@ class PortScanner
         {
             int n = 0;
 
-            Console.WriteLine(
+            Console.Write(
             "1.Check all IP addresses in the local network.\n" +
             "2.Scans all open ports by IP address\n" +
-            "3.Check my ports\n\n" +
+            "3.Check my ports\n" +
+            "4.Check OS by IP\n" +
+            "5.Exit\n\n" +
             "Choose option:");
             switch (n = int.Parse(Console.ReadLine()!))
             {
@@ -30,6 +32,13 @@ class PortScanner
                     await CheckMyPorts();
                     Console.WriteLine();
                     break;
+                case 4:
+                    await GetOperatingSystemByTTL();
+                    Console.WriteLine();
+                    break;
+                case 5:
+                    Console.WriteLine("Exiting program...");
+                    return;
                 default:
                     Console.WriteLine("Invalid choice.");
                     Console.WriteLine();
@@ -215,6 +224,58 @@ class PortScanner
             }
 
             await Task.WhenAll(tasks);
+        }
+
+        async Task GetOperatingSystemByTTL()
+        {
+            try
+            {
+                Console.Write("Enter IP address to scan for OS (e.g., 192.168.1.10): ");
+                string ipAddress = Console.ReadLine()!;
+
+                using Ping ping = new();
+                PingReply reply = await ping.SendPingAsync(ipAddress);
+
+                if (reply.Status == IPStatus.Success)
+                {
+                    int ttl = reply.Options?.Ttl ?? -1;
+                    string osInfo = GetOSFromTTL(ttl);
+                    Console.WriteLine($"\nDetected OS: {osInfo}");
+                }
+                else
+                {
+                    Console.WriteLine("Unable to reach the device.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+        }
+
+        static string GetOSFromTTL(int ttl)
+        {
+            if (ttl == -1)
+            {
+                return "TTL not available";
+            }
+
+            if (ttl >= 120 && ttl <= 128)
+            {
+                return "Windows (likely)";
+            }
+            else if (ttl >= 60 && ttl <= 70)
+            {
+                return "Linux/Android (likely)";
+            }
+            else if (ttl >= 240 && ttl <= 255)
+            {
+                return "Cisco/RouterOS (likely)";
+            }
+            else
+            {
+                return "Unknown OS based on TTL.";
+            }
         }
     }
 }
