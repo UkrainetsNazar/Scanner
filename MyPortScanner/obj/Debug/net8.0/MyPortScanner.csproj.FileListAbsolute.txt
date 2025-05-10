@@ -1,0 +1,14 @@
+/Users/nazar/Desktop/Code/MyPortScanner/bin/Debug/net8.0/MyPortScanner
+/Users/nazar/Desktop/Code/MyPortScanner/bin/Debug/net8.0/MyPortScanner.deps.json
+/Users/nazar/Desktop/Code/MyPortScanner/bin/Debug/net8.0/MyPortScanner.runtimeconfig.json
+/Users/nazar/Desktop/Code/MyPortScanner/bin/Debug/net8.0/MyPortScanner.dll
+/Users/nazar/Desktop/Code/MyPortScanner/bin/Debug/net8.0/MyPortScanner.pdb
+/Users/nazar/Desktop/Code/MyPortScanner/obj/Debug/net8.0/MyPortScanner.GeneratedMSBuildEditorConfig.editorconfig
+/Users/nazar/Desktop/Code/MyPortScanner/obj/Debug/net8.0/MyPortScanner.AssemblyInfoInputs.cache
+/Users/nazar/Desktop/Code/MyPortScanner/obj/Debug/net8.0/MyPortScanner.AssemblyInfo.cs
+/Users/nazar/Desktop/Code/MyPortScanner/obj/Debug/net8.0/MyPortScanner.csproj.CoreCompileInputs.cache
+/Users/nazar/Desktop/Code/MyPortScanner/obj/Debug/net8.0/MyPortScanner.dll
+/Users/nazar/Desktop/Code/MyPortScanner/obj/Debug/net8.0/refint/MyPortScanner.dll
+/Users/nazar/Desktop/Code/MyPortScanner/obj/Debug/net8.0/MyPortScanner.pdb
+/Users/nazar/Desktop/Code/MyPortScanner/obj/Debug/net8.0/MyPortScanner.genruntimeconfig.cache
+/Users/nazar/Desktop/Code/MyPortScanner/obj/Debug/net8.0/ref/MyPortScanner.dll
